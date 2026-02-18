@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background: #fff0f5;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.letter-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10;
+    text-align: left;
+}
+
+.heart-icon {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #ff4d88;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.letter-body p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.signature {
+    margin-top: 30px;
+    text-align: right;
+    font-style: italic;
+}
+
+.signature span {
+    font-weight: bold;
+    color: #ff4d88;
+    font-size: 1.2rem;
+}
+
+.back-btn {
+    display: block;
+    margin: 20px auto 0;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Background Hearts */
+.floating-heart {
+    position: fixed;
+    bottom: -50px;
+    color: #ffb6c1;
+    opacity: 0.5;
+    animation: floatUp linear forwards;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
