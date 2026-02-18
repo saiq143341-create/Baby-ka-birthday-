@@ -3,61 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Letter For Iqura ❤️</title>
-    <link rel="stylesheet" href="style.css">
+    <title>For My Love Iqura ❤️</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: #add8e6; /* Sky Blue Background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: flex-end;
+            height: 100vh; overflow: hidden;
+        }
+
+        /* 🌸 Growing Flower Animation */
+        .flower-stage {
+            position: relative; width: 200px; height: 300px;
+            display: flex; justify-content: center; align-items: flex-end;
+        }
+        .stem {
+            width: 8px; height: 0; background: #4caf50;
+            border-radius: 5px; animation: growStem 2s forwards ease-in-out;
+        }
+        .bloom {
+            position: absolute; top: -25px; font-size: 0;
+            animation: bloomFlower 1s 2s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes growStem { to { height: 220px; } }
+        @keyframes bloomFlower { to { font-size: 70px; } }
+
+        /* ✨ Main Content */
+        .content {
+            position: absolute; top: 25%; text-align: center;
+            width: 90%; opacity: 0; animation: fadeIn 1s 3.5s forwards;
+        }
+        .content h2 { color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.2); font-size: 1.4rem; }
+        
+        .open-btn {
+            background: #ff4d88; color: white; border: none;
+            padding: 15px 30px; border-radius: 30px; cursor: pointer;
+            font-size: 18px; margin-top: 20px; font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255,77,136,0.5);
+            transition: 0.3s;
+        }
+        .open-btn:hover { transform: scale(1.05); background: #e63977; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 💌 Letter Card (Hug Style) */
+        .letter-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); display: none;
+            justify-content: center; align-items: center; z-index: 100;
+            backdrop-filter: blur(4px);
+        }
+        .letter-card {
+            background: white; width: 88%; max-width: 450px;
+            padding: 30px; border-radius: 25px; position: relative;
+            transform: translateY(100px); animation: slideUp 0.6s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+            max-height: 85vh; overflow-y: auto;
+        }
+        .hug-icon { font-size: 60px; text-align: center; margin-bottom: 15px; }
+        .close-btn { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 28px; color: #999; }
+
+        @keyframes slideUp { to { transform: translateY(0); } }
+
+        /* Letter Text Styling */
+        .letter-text { line-height: 1.8; color: #444; font-size: 1rem; text-align: left; }
+        .letter-text h3 { color: #ff4d88; text-align: center; margin-top: 0; }
+        .signature { text-align: right; margin-top: 20px; font-style: italic; color: #ff4d88; font-weight: bold; }
+
+        /* Falling background flowers */
+        .bg-flower {
+            position: fixed; top: -50px; pointer-events: none;
+            animation: fall linear forwards; z-index: 0; opacity: 0.6;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+    </style>
 </head>
 <body>
 
-    <div id="flower-container"></div>
+    <div id="bg-flowers"></div>
 
-    <div class="letter-container">
-        <div class="heart-icon">❤️</div>
-        <h3>HAPPY BIRTHDAY 🎂 MY LOVE IQURA</h3>
+    <div class="flower-stage">
+        <div class="stem"></div>
+        <div class="bloom">🌸</div>
+    </div>
 
-        <div class="letter-body">
-            <p><b>Meri Jaan,</b></p>
-            <p>
-                Aaj ka din aur achcha jaata, kal se Ramadan bhi hai... par meri kuch bewakoofi ki wajah se 
-                maine aapko mazeed pareshan aur taqlif mein daal diya. Mai hamesha chahta tha ki aapko 
-                koi taqlif na de, aur afsos ki ab in sab ki wajah mai hi ban chuka hoon.
-            </p>
-            <p>
-                In sab baaton ke alawa ek baat hai jo sab se zaruri hai mere liye... aapne mere liye 
-                bohot kuch kiya hai aur kar rahe ho. Mai bas itna chahta hoon ki aap hamesha mere saath 
-                isi tarah rehna 💗.
-            </p>
-            <p>
-                Hamesha mere liye bohot zaroori ho aap aur aapke liye mai! 
-                I love you 🦋 with my all heart 💓.
-            </p>
-            <p class="signature">Hamesha Tumhara,<br><span>Salman</span></p>
+    <div class="content">
+        <h2>So many flowers but my favourite one is you hehe 🤭</h2>
+        <button class="open-btn" onclick="openLetter()">Open Special Letter ❤️</button>
+    </div>
+
+    <div class="letter-overlay" id="letterModal">
+        <div class="letter-card">
+            <span class="close-btn" onclick="closeLetter()">&times;</span>
+            <div class="hug-icon">🫂</div>
+            
+            <div class="letter-text">
+                <h3>HAPPY BIRTHDAY 🎂 MY LOVE IQURA</h3>
+                <p><b>Meri Jaan,</b></p>
+                <p>
+                    Aaj ka din aur achcha jaata, kal se Ramadan bhi hai... par meri kuch bewakoofi ki wajah se 
+                    maine aapko mazeed pareshan aur taqlif mein daal diya. Mai hamesha chahta tha ki aapko 
+                    koi taqlif na de, aur afsos ki ab in sab ki wajah mai hi ban chuka hoon.
+                </p>
+                <p>
+                    In sab baaton ke alawa ek baat hai jo sab se zaruri hai mere liye... aapne mere liye 
+                    bohot kuch kiya hai aur kar rahe ho. Mai bas itna chahta hoon ki aap hamesha mere saath 
+                    isi tarah rehna 💗.
+                </p>
+                <p>
+                    Hamesha mere liye bohot zaroori ho aap aur aapke liye mai! 
+                    I love you 🦋 with my all heart 💓.
+                </p>
+                <div class="signature">With all my love,<br>— Salman</div>
+            </div>
+            
+            <center><button onclick="closeLetter()" style="margin-top:20px; background:#9b59b6; color:white; border:none; padding:8px 20px; border-radius:15px; cursor:pointer;">Close</button></center>
         </div>
-        <button onclick="history.back()" class="back-btn">Go Back</button>
     </div>
 
     <script>
-        // Flowers Animation Logic
-        function createFlower() {
-            const flower = document.createElement("div");
-            flower.className = "flower";
-            
-            // Randomly pick flower emojis
-            const flowers = ['🌸', '🌸', '💮', '💮', '🌸'];
-            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-            
-            flower.style.left = Math.random() * 100 + "vw";
-            flower.style.fontSize = Math.random() * 15 + 15 + "px";
-            flower.style.animationDuration = Math.random() * 3 + 4 + "s";
-            
-            document.getElementById("flower-container").appendChild(flower);
-            
-            setTimeout(() => {
-                flower.remove();
-            }, 6000);
+        function openLetter() {
+            document.getElementById('letterModal').style.display = 'flex';
         }
-        
-        // Generate flowers constantly
-        setInterval(createFlower, 300);
+        function closeLetter() {
+            document.getElementById('letterModal').style.display = 'none';
+        }
+
+        // Background falling flowers
+        function createBgFlower() {
+            const f = document.createElement("div");
+            f.className = "bg-flower";
+            f.innerHTML = "🌸";
+            f.style.left = Math.random() * 100 + "vw";
+            f.style.fontSize = Math.random() * 10 + 10 + "px";
+            f.style.animationDuration = Math.random() * 3 + 4 + "s";
+            document.getElementById("bg-flowers").appendChild(f);
+            setTimeout(() => f.remove(), 6000);
+        }
+        setInterval(createBgFlower, 500);
     </script>
+
 </body>
 </html>
