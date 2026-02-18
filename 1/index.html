@@ -5,23 +5,23 @@
   <title>Happy Birthday Iqura ❤️</title>
   <link rel="stylesheet" href="./style.css">
   <style>
-    /* ✨ Custom Additions for Salman */
+    /* ✨ Salman's Custom Design */
     .content-overlay {
-      position: absolute; top: 20%; left: 50%;
+      position: absolute; top: 15%; left: 50%;
       transform: translateX(-50%); text-align: center;
       z-index: 100; opacity: 0;
-      animation: fadeIn 2s 5s forwards; /* Flowers khilne ke baad aayega */
+      animation: fadeIn 2s 5s forwards;
     }
-    .content-overlay h2 { color: #ffd60a; font-size: 1.5rem; text-shadow: 0 0 15px rgba(0,0,0,0.8); }
+    .content-overlay h2 { color: #ffd60a; font-size: 1.4rem; text-shadow: 0 0 15px rgba(0,0,0,0.8); }
     
     .open-btn {
       background: #ff219b; color: white; border: none;
-      padding: 15px 35px; border-radius: 30px; cursor: pointer;
-      font-weight: bold; font-size: 1.1rem; margin-top: 20px;
+      padding: 12px 30px; border-radius: 30px; cursor: pointer;
+      font-weight: bold; font-size: 1rem; margin-top: 15px;
       box-shadow: 0 0 20px rgba(255, 33, 155, 0.5);
     }
 
-    /* 📜 Vintage Letter Style */
+    /* 📜 Vintage Letter Popup */
     .letter-modal {
       position: fixed; inset: 0; background: rgba(0,0,0,0.9);
       display: none; justify-content: center; align-items: center; z-index: 200;
@@ -29,7 +29,7 @@
     }
     .letter-paper {
       background: url('paper.jpg') no-repeat center/cover;
-      width: 90%; max-width: 420px; min-height: 550px;
+      width: 90%; max-width: 420px; min-height: 580px;
       padding: 40px 30px; position: relative;
       box-shadow: 0 0 50px rgba(0,0,0,1);
       display: flex; flex-direction: column; align-items: center;
@@ -38,14 +38,27 @@
     .letter-modal.active .letter-paper { transform: scale(1); }
 
     .hug-img {
-      width: 130px; height: 130px; margin-bottom: 20px;
+      width: 130px; height: 130px; margin-bottom: 15px;
       border: 3px solid #5d4037; border-radius: 10px; overflow: hidden;
     }
     .hug-img img { width: 100%; height: 100%; object-fit: cover; }
 
-    .letter-text { color: #3e2723; line-height: 1.6; font-family: 'Georgia', serif; }
-    .letter-text h3 { color: #8b0000; text-align: center; margin-top: 0; }
-    .close-btn { position: absolute; right: 20px; top: 15px; font-size: 35px; cursor: pointer; color: #3e2723; }
+    .letter-text { color: #3e2723; line-height: 1.6; font-family: 'Georgia', serif; font-size: 0.95rem; }
+    .letter-text h3 { color: #8b0000; text-align: center; margin-bottom: 15px; }
+    
+    .next-btn {
+      background: #8b4513; color: white; border: none;
+      padding: 8px 20px; border-radius: 20px; cursor: pointer;
+      font-weight: bold; margin-top: 15px;
+    }
+
+    .close-btn { position: absolute; right: 15px; top: 10px; font-size: 35px; cursor: pointer; color: #3e2723; }
+
+    /* 🎥 Video Container */
+    #videoContainer {
+      display: none; position: fixed; inset: 0; background: black;
+      z-index: 300; justify-content: center; align-items: center;
+    }
 
     @keyframes fadeIn { to { opacity: 1; } }
   </style>
@@ -62,7 +75,7 @@
         <div class="flower__leaf flower__leaf--4"></div>
         <div class="flower__white-circle"></div>
       </div>
-      <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1"></div></div>
+      <div class="flower__line"></div>
     </div>
     <div class="flower flower--2"><div class="flower__leafs flower__leafs--2"><div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div><div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div><div class="flower__white-circle"></div></div><div class="flower__line"></div></div>
     <div class="flower flower--3"><div class="flower__leafs flower__leafs--3"><div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div><div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div><div class="flower__white-circle"></div></div><div class="flower__line"></div></div>
@@ -81,29 +94,38 @@
       <div class="letter-text">
         <h3>Happy Birthday Iqura 🎂</h3>
         <p><b>Meri Jaan,</b></p>
-        <p>Aaj ka din aur achcha jaata, kal se Ramadan bhi hai... par meri kuch bewakoofi ki wajah se maine aapko mazeed pareshan aur taqlif mein daal diya. Mai hamesha chahta tha ki aapko koi taqlif na de, aur ab in sab ki wajah mai hi ban chuka hoon.</p>
-        <p>Aapne mere liye bohot kuch kiya hai... Mai bas itna chahta hoon ki aap hamesha mere saath isi tarah rehna 💗.</p>
-        <p>I love you 🦋 with my all heart 💓.</p>
-        <div style="text-align: right; margin-top: 20px; font-weight: bold;">— Your Salman</div>
+        <p>Aaj ka din aur achcha jaata... par meri kuch bewakoofi ki wajah se maine aapko taqlif di. Mai hamesha chahta tha ki aapko koi taqlif na de, aur ab in sab ki wajah mai hi ban chuka hoon.</p>
+        <p>Mai bas itna chahta hoon ki aap hamesha mere saath isi tarah rehna 💗. I love you 🦋 with my all heart 💓.</p>
+        <div style="text-align: right; font-weight: bold;">— Your Salman</div>
+        <center><button class="next-btn" onclick="showVideo()">Next ❤️</button></center>
       </div>
     </div>
   </div>
 
-  <script>
-    // Pehle flowers load honge
-    window.onload = () => {
-      document.body.classList.remove("not-loaded");
-    };
+  <div id="videoContainer">
+    <span onclick="closeVideo()" style="position:absolute; top:20px; right:25px; color:white; font-size:35px; cursor:pointer;">&times;</span>
+    <video id="birthdayVideo" width="90%" controls>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+  </div>
 
-    function openLetter() {
-      const modal = document.getElementById('letterModal');
-      modal.style.display = 'flex';
-      setTimeout(() => modal.classList.add('active'), 10);
+  <script>
+    window.onload = () => { document.body.classList.remove("not-loaded"); };
+    function openLetter() { 
+      const m = document.getElementById('letterModal'); m.style.display = 'flex'; 
+      setTimeout(() => m.classList.add('active'), 10);
     }
-    function closeLetter() {
-      const modal = document.getElementById('letterModal');
-      modal.classList.remove('active');
-      setTimeout(() => modal.style.display = 'none', 500);
+    function closeLetter() { 
+      const m = document.getElementById('letterModal'); m.classList.remove('active');
+      setTimeout(() => m.style.display = 'none', 500);
+    }
+    function showVideo() { 
+      document.getElementById('videoContainer').style.display = 'flex'; 
+      document.getElementById('birthdayVideo').play();
+    }
+    function closeVideo() { 
+      document.getElementById('videoContainer').style.display = 'none'; 
+      document.getElementById('birthdayVideo').pause();
     }
   </script>
 </body>
