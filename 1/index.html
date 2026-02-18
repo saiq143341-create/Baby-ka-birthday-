@@ -7,7 +7,7 @@
     <style>
         body {
             margin: 0; padding: 0;
-            background: #add8e6; /* Sky Blue Background */
+            background: #add8e6;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex; flex-direction: column;
             align-items: center; justify-content: flex-end;
@@ -31,25 +31,22 @@
         @keyframes growStem { to { height: 220px; } }
         @keyframes bloomFlower { to { font-size: 70px; } }
 
-        /* ✨ Main Content */
+        /* ✨ Message & Button */
         .content {
             position: absolute; top: 25%; text-align: center;
             width: 90%; opacity: 0; animation: fadeIn 1s 3.5s forwards;
         }
-        .content h2 { color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.2); font-size: 1.4rem; }
-        
+        .content h2 { color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.2); }
         .open-btn {
             background: #ff4d88; color: white; border: none;
             padding: 15px 30px; border-radius: 30px; cursor: pointer;
             font-size: 18px; margin-top: 20px; font-weight: bold;
             box-shadow: 0 4px 15px rgba(255,77,136,0.5);
-            transition: 0.3s;
         }
-        .open-btn:hover { transform: scale(1.05); background: #e63977; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* 💌 Letter Card (Hug Style) */
+        /* 💌 Letter Popup with Hug Photo */
         .letter-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.6); display: none;
@@ -59,30 +56,27 @@
         .letter-card {
             background: white; width: 88%; max-width: 450px;
             padding: 30px; border-radius: 25px; position: relative;
-            transform: translateY(100px); animation: slideUp 0.6s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: translateY(100px); animation: slideUp 0.6s forwards;
             max-height: 85vh; overflow-y: auto;
         }
-        .hug-icon { font-size: 60px; text-align: center; margin-bottom: 15px; }
-        .close-btn { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 28px; color: #999; }
 
+        /* 🖼️ Hug Image Styling */
+        .hug-frame {
+            width: 150px; height: 150px; margin: 0 auto 20px;
+            border: 4px solid #ffb6c1; border-radius: 15px;
+            overflow: hidden; display: flex; justify-content: center; align-items: center;
+        }
+        .hug-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        .close-btn { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 28px; color: #999; }
         @keyframes slideUp { to { transform: translateY(0); } }
 
-        /* Letter Text Styling */
-        .letter-text { line-height: 1.8; color: #444; font-size: 1rem; text-align: left; }
-        .letter-text h3 { color: #ff4d88; text-align: center; margin-top: 0; }
-        .signature { text-align: right; margin-top: 20px; font-style: italic; color: #ff4d88; font-weight: bold; }
-
-        /* Falling background flowers */
-        .bg-flower {
-            position: fixed; top: -50px; pointer-events: none;
-            animation: fall linear forwards; z-index: 0; opacity: 0.6;
-        }
-        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+        .letter-text { line-height: 1.8; color: #444; text-align: left; }
+        .letter-text h3 { color: #ff4d88; text-align: center; margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .signature { text-align: right; margin-top: 20px; color: #ff4d88; font-weight: bold; }
     </style>
 </head>
 <body>
-
-    <div id="bg-flowers"></div>
 
     <div class="flower-stage">
         <div class="stem"></div>
@@ -97,7 +91,10 @@
     <div class="letter-overlay" id="letterModal">
         <div class="letter-card">
             <span class="close-btn" onclick="closeLetter()">&times;</span>
-            <div class="hug-icon">🫂</div>
+            
+            <div class="hug-frame">
+                <img src="hug.jpg" alt="Hug">
+            </div>
             
             <div class="letter-text">
                 <h3>HAPPY BIRTHDAY 🎂 MY LOVE IQURA</h3>
@@ -105,7 +102,7 @@
                 <p>
                     Aaj ka din aur achcha jaata, kal se Ramadan bhi hai... par meri kuch bewakoofi ki wajah se 
                     maine aapko mazeed pareshan aur taqlif mein daal diya. Mai hamesha chahta tha ki aapko 
-                    koi taqlif na de, aur afsos ki ab in sab ki wajah mai hi ban chuka hoon.
+                    koi taqlif na de, aur ab in sab ki wajah mai hi ban chuka hoon.
                 </p>
                 <p>
                     In sab baaton ke alawa ek baat hai jo sab se zaruri hai mere liye... aapne mere liye 
@@ -118,32 +115,12 @@
                 </p>
                 <div class="signature">With all my love,<br>— Salman</div>
             </div>
-            
-            <center><button onclick="closeLetter()" style="margin-top:20px; background:#9b59b6; color:white; border:none; padding:8px 20px; border-radius:15px; cursor:pointer;">Close</button></center>
         </div>
     </div>
 
     <script>
-        function openLetter() {
-            document.getElementById('letterModal').style.display = 'flex';
-        }
-        function closeLetter() {
-            document.getElementById('letterModal').style.display = 'none';
-        }
-
-        // Background falling flowers
-        function createBgFlower() {
-            const f = document.createElement("div");
-            f.className = "bg-flower";
-            f.innerHTML = "🌸";
-            f.style.left = Math.random() * 100 + "vw";
-            f.style.fontSize = Math.random() * 10 + 10 + "px";
-            f.style.animationDuration = Math.random() * 3 + 4 + "s";
-            document.getElementById("bg-flowers").appendChild(f);
-            setTimeout(() => f.remove(), 6000);
-        }
-        setInterval(createBgFlower, 500);
+        function openLetter() { document.getElementById('letterModal').style.display = 'flex'; }
+        function closeLetter() { document.getElementById('letterModal').style.display = 'none'; }
     </script>
-
 </body>
 </html>
