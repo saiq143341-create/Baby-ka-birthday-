@@ -8,38 +8,47 @@
 </head>
 <body>
 
-    <div class="main-wrapper">
-        <div class="lyrics-box">
-            <p id="lyrics-text">Click the play button to start ❤️</p>
-        </div>
-        
-        <div class="controls">
-            <button class="play-btn" id="playBtn">▶</button>
-            <p class="status-tag">Typewriter Effect Active</p>
-        </div>
-
-        <h3 class="memories-title">MEMORIES</h3>
-        <div class="photo-grid">
-            <div class="photo-item"><img src="photo1.jpg" alt="Memory 1"></div>
-            <div class="photo-item"><img src="photo2.jpg" alt="Memory 2"></div>
-            <div class="photo-item"><img src="photo3.jpg" alt="Memory 3"></div>
-            <div class="photo-item"><img src="photo4.jpg" alt="Memory 4"></div>
-            <div class="photo-item"><img src="photo5.jpg" alt="Memory 5"></div>
-            <div class="photo-item"><img src="photo6.jpg" alt="Memory 6"></div>
-        </div>
-
-        <p class="love-tag">♡ I love you ♡</p>
-
-        <div class="footer-info">
-            <p class="footer-text">➵ To: My Love ❤️</p>
-            <p class="footer-text">➵ From: Salman</p>
-            <button class="letter-btn" id="openLetter">Letter</button>
+    <div class="hero-section">
+        <div class="overlay">
+            <h1>I Love You..</h1>
         </div>
     </div>
 
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+    <div class="main-content">
+        <div class="lyrics-card">
+            <p id="lyrics-text"></p>
+            <span class="cursor">|</span>
+        </div>
+
+        <div class="player-controls">
+            <p id="timer">0:00 / 0:00</p>
+            <button class="play-btn" id="playBtn">⏸</button>
+            <div class="toggle-container">
+                <input type="checkbox" id="typewriterToggle" checked>
+                <label for="typewriterToggle">Typewriter Effect</label>
+            </div>
+        </div>
+
+        <h2 class="section-title">MEMORIES</h2>
+        <div class="photo-grid">
+            <div class="photo-card"><img src="photo1.jpg"></div>
+            <div class="photo-card"><img src="photo2.jpg"></div>
+            <div class="photo-card"><img src="photo3.jpg"></div>
+            <div class="photo-card"><img src="photo4.jpg"></div>
+            <div class="photo-card"><img src="photo5.jpg"></div>
+            <div class="photo-card"><img src="photo6.jpg"></div>
+        </div>
+
+        <p class="love-quote">♡ I love you ♡</p>
+
+        <div class="footer">
+            <p>➵ To : My Love ❤️</p>
+            <p>➵ From : Salman</p>
+            <button class="pink-btn">Letter</button>
+        </div>
+    </div>
+
+    <audio id="bgMusic" src="music.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
