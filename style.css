@@ -1,0 +1,119 @@
+:root {
+    --pink: #ff4d88;
+    --purple: #9b59b6;
+    --bg-color: #fff0f5;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-color);
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.main-wrapper {
+    padding-top: 30px;
+    z-index: 5;
+    position: relative;
+}
+
+/* Lyrics Box Styling */
+.lyrics-box {
+    background: white;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 85%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lyrics-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    white-space: pre-line;
+}
+
+/* Play Button */
+.play-btn {
+    background: var(--purple);
+    color: white;
+    border: none;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
+    transition: 0.3s;
+}
+
+.play-btn:hover { transform: scale(1.1); }
+
+.status-tag { font-size: 0.8rem; color: #aaa; margin-top: 10px; }
+
+/* Photo Grid */
+.memories-title {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    color: #999;
+    margin-top: 40px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    background: #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.photo-item img { width: 100%; height: 100%; object-fit: cover; }
+
+.love-tag { color: var(--pink); font-weight: bold; margin: 25px 0; }
+
+/* Footer */
+.footer-text { font-size: 0.9rem; color: #777; margin: 4px 0; }
+.letter-btn {
+    background: var(--pink);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(255, 77, 136, 0.3);
+}
+
+/* Floating Hearts Animation */
+.heart {
+    position: absolute;
+    bottom: -50px;
+    color: var(--pink);
+    animation: floatUp 4s infinite linear;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
