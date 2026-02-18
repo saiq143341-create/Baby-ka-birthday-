@@ -1,17 +1,17 @@
 body {
     margin: 0;
     padding: 20px;
-    background: #fff0f5;
+    background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
     font-family: 'Segoe UI', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden; /* Taaki flowers screen ke bahar scroll na karein */
 }
 
 .letter-container {
-    background: white;
+    background: rgba(255, 255, 255, 0.9); /* Thoda transparent taaki flowers piche dikhein */
     padding: 30px;
     border-radius: 20px;
     max-width: 500px;
@@ -19,65 +19,34 @@ body {
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     position: relative;
     z-index: 10;
-    text-align: left;
+    backdrop-filter: blur(5px);
 }
 
-.heart-icon {
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-h3 {
-    color: #ff4d88;
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 1.5rem;
-}
-
-.letter-body p {
-    color: #555;
-    line-height: 1.7;
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-.signature {
-    margin-top: 30px;
-    text-align: right;
-    font-style: italic;
-}
-
-.signature span {
-    font-weight: bold;
-    color: #ff4d88;
-    font-size: 1.2rem;
-}
+.heart-icon { text-align: center; font-size: 40px; margin-bottom: 10px; }
+h3 { color: #ff4d88; text-align: center; margin-bottom: 25px; }
+.letter-body p { color: #555; line-height: 1.7; margin-bottom: 15px; }
+.signature { text-align: right; margin-top: 30px; }
+.signature span { font-weight: bold; color: #ff4d88; font-size: 1.2rem; }
 
 .back-btn {
-    display: block;
-    margin: 20px auto 0;
-    background: #9b59b6;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 20px;
-    cursor: pointer;
+    display: block; margin: 20px auto 0;
+    background: #9b59b6; color: white; border: none;
+    padding: 10px 25px; border-radius: 20px; cursor: pointer;
 }
 
-/* Background Hearts */
-.floating-heart {
+/* 🌸 Flower Animation Styles */
+.flower {
     position: fixed;
-    bottom: -50px;
-    color: #ffb6c1;
-    opacity: 0.5;
-    animation: floatUp linear forwards;
+    top: -50px;
     z-index: 1;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear forwards;
 }
 
-@keyframes floatUp {
+@keyframes fall {
     to {
-        transform: translateY(-110vh) rotate(360deg);
+        transform: translateY(110vh) rotate(360deg);
         opacity: 0;
     }
 }
