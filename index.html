@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Lyrics - For You ❤️</title>
+    <title>For My Love Iqura ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,13 +16,12 @@
 
     <div class="main-content">
         <div class="lyrics-card">
-            <p id="lyrics-text"></p>
+            <p id="lyrics-text">Press Play to See Magic ✨</p>
             <span class="cursor">|</span>
         </div>
 
         <div class="player-controls">
-            <p id="timer">0:00 / 0:00</p>
-            <button class="play-btn" id="playBtn">⏸</button>
+            <button class="play-btn" id="playBtn">▶</button>
             <div class="toggle-container">
                 <input type="checkbox" id="typewriterToggle" checked>
                 <label for="typewriterToggle">Typewriter Effect</label>
@@ -31,24 +30,29 @@
 
         <h2 class="section-title">MEMORIES</h2>
         <div class="photo-grid">
-            <div class="photo-card"><img src="photo1.jpg"></div>
-            <div class="photo-card"><img src="photo2.jpg"></div>
-            <div class="photo-card"><img src="photo3.jpg"></div>
-            <div class="photo-card"><img src="photo4.jpg"></div>
-            <div class="photo-card"><img src="photo5.jpg"></div>
-            <div class="photo-card"><img src="photo6.jpg"></div>
+            <div class="photo-card"><img src="photo1.jpg" alt="Memory 1"></div>
+            <div class="photo-card"><img src="photo2.jpg" alt="Memory 2"></div>
+            <div class="photo-card"><img src="photo3.jpg" alt="Memory 3"></div>
+            <div class="photo-card"><img src="photo4.jpg" alt="Memory 4"></div>
+            <div class="photo-card"><img src="photo5.jpg" alt="Memory 5"></div>
+            <div class="photo-card"><img src="photo6.jpg" alt="Memory 6"></div>
         </div>
 
         <p class="love-quote">♡ I love you ♡</p>
 
         <div class="footer">
-            <p>➵ To : My Love iqura❤️</p>
+            <p>➵ To : My Love Iqura ❤️</p>
             <p>➵ From : Salman</p>
-            <button class="pink-btn">Letter</button>
+            
+            <a href="1/index.html" style="text-decoration: none;">
+                <button class="pink-btn">Letter</button>
+            </a>
         </div>
     </div>
 
-    <audio id="bgMusic" src="music.mp3"></audio>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="script.js"></script>
 </body>
